@@ -1,0 +1,23 @@
+# Auth Example Block (for [kintohub](http://www.kintohub.com/))
+
+> This is an example project used in kintohub, is used with [Blog Example Block](https://github.com/kintohub/blog-example-block)
+
+This is a fake login microservice you can add it to kintohub and login with the following credentials
+
+```
+// POST /login
+{
+  username: 'kinto',
+  password: 'abc123'
+}
+```
+
+
+## Commands
+
+The following command are available:
+
+* `npm install`: Installs all NPM dependencies.
+* `npm start`: Starts a local web server at `http://localhost:8000` (can be changed by changing the PORT var).
+* `npm run build`: clean and compile the app
+* `npm run prod`: run the production version (must do `npm run build` before)
