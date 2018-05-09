@@ -24,6 +24,7 @@ server.route({
     } catch (e) {
       payload = {}
     }
+    const { username, password } = payload
     if (username === 'kinto' && password === 'abc123') {
       return h
         .response({ message: 'Logged in successfully' })
