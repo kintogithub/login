@@ -18,13 +18,7 @@ server.route({
   method: 'POST',
   path: '/login',
   handler(request, h) {
-    let payload = null
-    try {
-      payload = JSON.parse(request.payload)
-    } catch (e) {
-      payload = {}
-    }
-    const { username, password } = payload
+    const { username, password } = request.payload
     if (username === 'kinto' && password === 'abc123') {
       return h
         .response({ message: 'Logged in successfully' })
