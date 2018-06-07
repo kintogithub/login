@@ -5,10 +5,10 @@ const server = Hapi.server({
 })
 
 /**
- * @api {POST} /login auth user
+ * @api {post} /login A dummy login action will only accept username="kinto" and password="abc123"
  * @apiName Login
- * @apiParam (Body) {String} username the username or emai for the user
- * @apiParam (Body) {String} password the password for the password
+ * @apiParam (QueryStrin) {String} username the username or emai for the user
+ * @apiParam (Query) {String} password the password for the password
  * @apiSuccess (Session) {String} authexample-id the logged in user id
  * @apiSuccess (Session) {String} authexample-name the logged in user real name
  * @apiSuccess (Success_200) {String} message success message when the user is logged in
