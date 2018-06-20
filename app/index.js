@@ -5,28 +5,30 @@ const server = Hapi.server({
 })
 
 /**
- * @api {post} /login A dummy login action will only accept username="kinto" and password="abc123"
+ * @api {post} /login A dummy login action will accept any username and password
  * @apiName Login
- * @apiParam (QueryStrin) {String} username the username or emai for the user
- * @apiParam (Query) {String} password the password for the password
+ * @apiParam {String} username the username for authentication
+ * @apiParam {String} password the password for authentication
  * @apiSuccess (Session) {String} authexample-id the logged in user id
- * @apiSuccess (Session) {String} authexample-name the logged in user real name
- * @apiSuccess (Success_200) {String} message success message when the user is logged in
- * @apiError (Error_400) {String} error error message
+ * @apiSuccess (Session) {String} authexample-name the logged in username
+ * @apiSuccess {String} message success message when the user is logged in
+ * @apiError {String} error error message
  */
 server.route({
   method: 'POST',
   path: '/login',
   handler(request, h) {
-    const { username, password } = request.payload
-    if (username === 'kinto' && password === 'abc123') {
+    const  { payload } = request
+    if (!payload || !payload.username || !payload.password) {
       return h
-        .response({ message: 'Logged in successfully' })
-        .header('authexample-id', 1)
-        .header('authexample-name', 'Nadeem')
-        .code(200)
+        .response({ error: 'username and passwords are required' })
+        .code(400)
     }
-    return h.response({ error: 'username or passwords are invalid' }).code(400)
+    return h
+      .response({ message: 'Logged in successfully' })
+      .header('authexample-id', 1)
+      .header('authexample-name', payload.username)
+      .code(200)
   }
 })
 
