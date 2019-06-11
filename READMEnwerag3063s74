@@ -2,7 +2,7 @@
 
 > This is an example project used in kintohub, is used with [Blog Example Block](https://github.com/kintohub/blog-example-block)
 
-This is a fake login microservices you can add it to kintohub and login with the following credentials
+This is a fake login microservices you can add it wto kintohub and login with the following credentials
 
 ```
 // POST /login
